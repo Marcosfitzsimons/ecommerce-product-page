@@ -28,7 +28,7 @@ const ImageCarousel = ({ slides }) => {
   };
 
   return (
-    <section className="image-carousel-container h-full relative flex items-center z-20">
+    <section className="image-carousel-container h-full relative flex items-center z-10">
       <div className="left-arrow absolute left-2 rounded-full bg-white p-1">
         <MdKeyboardArrowLeft
           className="text-3xl cursor-pointer"

@@ -37,7 +37,7 @@ const Product = () => {
           <div className="">
             <button
               type="button"
-              className="relative flex items-center justify-center gap-3 p-3 rounded-md w-full text-white text-sm font-bold bg-orange-500"
+              className="relative flex items-center justify-center gap-3 p-3 rounded-md w-full text-white text-sm font-bold bg-orange-500 shadow-lg shadow-orange-500/30"
             >
               <AiOutlineShoppingCart className="text-lg text-white" />
               Add to cart

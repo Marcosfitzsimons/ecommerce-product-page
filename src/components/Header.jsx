@@ -3,16 +3,25 @@ import "animate.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiMenu } from "react-icons/bi";
 import { IoIosClose } from "react-icons/io";
+import { FaTrashAlt } from "react-icons/fa";
 import logo from "../assets/logo.svg";
 import avatar from "../assets/image-avatar.png";
+import ImageThumbnail from "../assets/image-product-1-thumbnail.jpg";
 
-const Header = ({ showMenu, setShowMenu }) => {
+const Header = ({
+  showMenu,
+  setShowMenu,
+  showCart,
+  setShowCart,
+  cartCount,
+  setCartCount,
+}) => {
   const handleShowMenu = () => {
     setShowMenu((prevValue) => !prevValue);
   };
 
   return (
-    <header className="header">
+    <header className="header relative">
       <div className="m-auto container flex justify-between items-center px-4 py-5">
         <div className="left-side flex items-center gap-3 md:gap-12">
           <div className="menu-icon-container transition-all md:hidden z-50">
@@ -67,6 +76,49 @@ const Header = ({ showMenu, setShowMenu }) => {
           </nav>
         )}
       </div>
+      {showCart && (
+        <div className="cart absolute w-screen bg-white left-0 top-20 h-[250px] z-20">
+          <div className="cart-container w-[90%] h-full mx-auto">
+            <div className="cart-header py-5 border-b">
+              <h4 className="font-bold">Cart</h4>
+            </div>
+            <div className="cart-content flex items-center h-[68%] justify-center">
+              {cartCount >= 0 ? (
+                <div className="flex flex-col w-full">
+                  <div className="flex items-center justify-between py-5 self-start w-full">
+                    <div className="flex items-center gap-3">
+                      <div className="w-16 rounded-md">
+                        <img
+                          src={ImageThumbnail}
+                          alt="shoes thumbnail"
+                          className="rounded-md"
+                        />
+                      </div>
+                      <div className="">
+                        <p className="text-gray-500">
+                          Autumn Limited Edition...
+                        </p>
+                        <p className="text-gray-500">
+                          $125.00 x 3{" "}
+                          <span className="font-bold text-black">$375.00</span>
+                        </p>
+                      </div>
+                    </div>
+                    <FaTrashAlt className="cursor-pointer text-gray-400 text-lg" />
+                  </div>
+                  <button className="py-4 text-white/95 font-bold bg-orange-500 rounded-lg">
+                    Checkout
+                  </button>
+                </div>
+              ) : (
+                <p className="font-bold text-dark-grayish-blue-500">
+                  Your cart is empty.
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

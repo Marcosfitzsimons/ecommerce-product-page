@@ -16,6 +16,8 @@ import ImageThumbnailProduct4 from './assets/image-product-4-thumbnail.jpg'
 function App() {
 
   const [showMenu, setShowMenu] = useState(false)
+  const [showCart, setShowCart] = useState(true)
+  const [cartCount, setCartCount] = useState(0)
 
   const slides = [
     {
@@ -42,7 +44,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header showMenu={showMenu} setShowMenu={setShowMenu} />
+      <Header
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
+        showCart={showCart}
+        setShowCart={setShowCart}
+        cartCount={cartCount}
+        setCartCount={setCartCount} />
       <main>
         <div className="image-carousel-container w-full h-[320px]">
           <ImageCarousel slides={slides} />
