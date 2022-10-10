@@ -20,8 +20,12 @@ const Header = ({
     setShowMenu((prevValue) => !prevValue);
   };
 
+  const handleShowCart = () => {
+    setShowCart((prevValue) => !prevValue);
+  };
+
   return (
-    <header className="header relative">
+    <header className="header md:relative">
       <div className="m-auto container flex justify-between items-center px-4 py-5">
         <div className="left-side flex items-center gap-3 md:gap-12">
           <div className="menu-icon-container transition-all md:hidden z-50">
@@ -52,16 +56,19 @@ const Header = ({
         </div>
         <div className="right-side flex items-center gap-4">
           <div className="cart-container">
-            <AiOutlineShoppingCart className="text-2xl cursor-pointer" />
+            <AiOutlineShoppingCart
+              className="text-2xl cursor-pointer"
+              onClick={handleShowCart}
+            />
           </div>
           <div className="profile-img-container w-8">
             <img src={avatar} alt="avatar" className="cursor-pointer" />
           </div>
         </div>
         {showMenu && (
-          <nav className="nav-mobile absolute w-full h-full left-0 top-0 bg-black/70 z-30 md:hidden">
+          <nav className="nav-mobile absolute w-full h-full left-0 top-0 bg-black/70 z-40 md:hidden">
             <div
-              className={`animate__animated animate__fadeInLeft z-40 w-[70%] sm:w-[50%] h-full bg-white ${
+              className={`animate__animated animate__fadeInLeft w-[70%] sm:w-[50%] h-screen bg-white ${
                 showMenu ? "translate-x-[0] " : "translate-x-[-400px]"
               }`}
             >
@@ -77,13 +84,13 @@ const Header = ({
         )}
       </div>
       {showCart && (
-        <div className="cart absolute w-screen bg-white left-0 top-20 h-[250px] z-20">
+        <div className="animate__animated animate__fadeInDown cart absolute w-screen bg-white left-0 top-20 h-[250px] z-30">
           <div className="cart-container w-[90%] h-full mx-auto">
             <div className="cart-header py-5 border-b">
               <h4 className="font-bold">Cart</h4>
             </div>
             <div className="cart-content flex items-center h-[68%] justify-center">
-              {cartCount >= 0 ? (
+              {cartCount > 0 ? (
                 <div className="flex flex-col w-full">
                   <div className="flex items-center justify-between py-5 self-start w-full">
                     <div className="flex items-center gap-3">

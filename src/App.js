@@ -16,7 +16,7 @@ import ImageThumbnailProduct4 from './assets/image-product-4-thumbnail.jpg'
 function App() {
 
   const [showMenu, setShowMenu] = useState(false)
-  const [showCart, setShowCart] = useState(true)
+  const [showCart, setShowCart] = useState(false)
   const [cartCount, setCartCount] = useState(0)
 
   const slides = [
