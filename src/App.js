@@ -18,6 +18,15 @@ function App() {
   const [showMenu, setShowMenu] = useState(false)
   const [showCart, setShowCart] = useState(false)
   const [cartCount, setCartCount] = useState(0)
+  const [price, setPrice] = useState(0)
+
+  const handleShowMenu = () => {
+    setShowMenu((prevValue) => !prevValue);
+  };
+
+  const handleShowCart = () => {
+    setShowCart((prevValue) => !prevValue);
+  };
 
   const slides = [
     {
@@ -46,16 +55,17 @@ function App() {
     <div className="App">
       <Header
         showMenu={showMenu}
-        setShowMenu={setShowMenu}
+        handleShowMenu={handleShowMenu}
         showCart={showCart}
-        setShowCart={setShowCart}
-        cartCount={cartCount}
-        setCartCount={setCartCount} />
+        handleShowCart={handleShowCart}
+        setPrice={setPrice}
+        price={price} />
+
       <main>
         <div className="image-carousel-container w-full h-[320px]">
           <ImageCarousel slides={slides} />
         </div>
-        <Product />
+        <Product cartCount={cartCount} setCartCount={setCartCount} setPrice={setPrice} />
       </main>
     </div>
   );

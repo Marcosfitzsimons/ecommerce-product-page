@@ -22,7 +22,7 @@ const ImageCarousel = ({ slides }) => {
   const slideStyles = {
     width: "100%",
     height: "100%",
-    backgroundPosition: "top center",
+    backgroundPosition: "top",
     backgroundSize: "cover",
     backgroundImage: `url(${slides[currentIndex].image})`,
   };
