@@ -57,12 +57,12 @@ const Product = ({ cartCount, setCartCount, setPrice }) => {
         <div className="flex flex-col gap-3 md:flex-row md:relative">
           <div className="product-count relative flex justify-around items-center bg-light-grayish-blue-500 p-3 md:p-4 rounded-md md:w-[35%]">
             <FaMinus
-              className="absolute left-4 text-sm text-orange-600 cursor-pointer"
+              className="absolute left-4 text-sm text-orange-600 cursor-pointer hover:text-orange-400 transition-all duration-200"
               onClick={decrementCount}
             />
             <p className="font-bold select-none">{cartCount}</p>
             <FaPlus
-              className="absolute right-4 text-sm text-orange-600 cursor-pointer"
+              className="absolute right-4 text-sm text-orange-600 cursor-pointer hover:text-orange-400 transition-all duration-200"
               onClick={incrementCount}
             />
           </div>
@@ -75,7 +75,7 @@ const Product = ({ cartCount, setCartCount, setPrice }) => {
             <button
               onClick={handleAddProduct}
               type="button"
-              className="relative flex items-center justify-center gap-3 p-3 rounded-md w-full text-white text-sm font-bold bg-orange-500 shadow-lg shadow-orange-500/30 md:h-full"
+              className="relative flex items-center justify-center gap-3 p-3 rounded-md w-full text-white text-sm font-bold bg-orange-500 hover:bg-orange-400 hover:scale-105 transition-all duration-200 shadow-lg shadow-orange-500/30 md:h-full"
             >
               <AiOutlineShoppingCart className="text-lg text-white" />
               Add to cart

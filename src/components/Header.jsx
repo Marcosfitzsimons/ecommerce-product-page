@@ -18,7 +18,7 @@ const Header = ({
 }) => {
   return (
     <header className="header">
-      <div className="mx-auto container flex justify-between items-center px-4 py-5 md:px-0 md:py-9 md:border-b md:border-b-gray-300 md:relative">
+      <div className="mx-auto container flex justify-between items-center px-4 py-5 md:px-0 md:py-0 md:border-b md:border-b-gray-300 md:relative">
         <div className="left-side flex items-center gap-3 md:gap-12">
           <div className="menu-icon-container transition-all md:hidden z-50">
             {showMenu ? (
@@ -38,11 +38,21 @@ const Header = ({
           </div>
           <nav className="nav hidden md:flex">
             <ul className="nav-list flex gap-7 items-center">
-              <li className="cursor-pointer text-gray-500">Collections</li>
-              <li className="cursor-pointer text-gray-500">Men</li>
-              <li className="cursor-pointer text-gray-500">Women</li>
-              <li className="cursor-pointer text-gray-500">About</li>
-              <li className="cursor-pointer text-gray-500">Contact</li>
+              <li className="cursor-pointer text-gray-500 md:py-8 transition-all duration-75 hover:border-b-2 hover:border-b-orange-500">
+                Collections
+              </li>
+              <li className="cursor-pointer text-gray-500 md:py-8 transition-all duration-75 hover:border-b-2 hover:border-b-orange-500">
+                Men
+              </li>
+              <li className="cursor-pointer text-gray-500 md:py-8 transition-all duration-75 hover:border-b-2 hover:border-b-orange-500">
+                Women
+              </li>
+              <li className="cursor-pointer text-gray-500 md:py-8 transition-all duration-75 hover:border-b-2 hover:border-b-orange-500">
+                About
+              </li>
+              <li className="cursor-pointer text-gray-500 md:py-8 transition-all duration-75 hover:border-b-2 hover:border-b-orange-500">
+                Contact
+              </li>
             </ul>
           </nav>
         </div>
@@ -61,7 +71,7 @@ const Header = ({
               </p>
             )}
           </div>
-          <div className="profile-img-container w-8 lg:w-16">
+          <div className="profile-img-container w-8 lg:w-16 rounded-full hover:border-2 hover:border-orange-500 transition-all duration-75">
             <img src={avatar} alt="avatar" className="cursor-pointer" />
           </div>
         </div>
