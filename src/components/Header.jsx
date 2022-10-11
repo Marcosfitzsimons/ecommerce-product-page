@@ -17,8 +17,8 @@ const Header = ({
   price,
 }) => {
   return (
-    <header className="header md:relative">
-      <div className="m-auto container flex justify-between items-center px-4 py-5">
+    <header className="header">
+      <div className="mx-auto container flex justify-between items-center px-4 py-5 md:px-0 md:py-9 md:border-b md:border-b-gray-300 md:relative">
         <div className="left-side flex items-center gap-3 md:gap-12">
           <div className="menu-icon-container transition-all md:hidden z-50">
             {showMenu ? (
@@ -38,18 +38,18 @@ const Header = ({
           </div>
           <nav className="nav hidden md:flex">
             <ul className="nav-list flex gap-7 items-center">
-              <li className="cursor-pointer">Collections</li>
-              <li className="cursor-pointer">Men</li>
-              <li className="cursor-pointer">Women</li>
-              <li className="cursor-pointer">About</li>
-              <li className="cursor-pointer">Contact</li>
+              <li className="cursor-pointer text-gray-500">Collections</li>
+              <li className="cursor-pointer text-gray-500">Men</li>
+              <li className="cursor-pointer text-gray-500">Women</li>
+              <li className="cursor-pointer text-gray-500">About</li>
+              <li className="cursor-pointer text-gray-500">Contact</li>
             </ul>
           </nav>
         </div>
-        <div className="right-side flex items-center gap-4">
+        <div className="right-side flex items-center gap-4 lg:gap-8">
           <div className="cart-container relative ">
             <AiOutlineShoppingCart
-              className="text-2xl cursor-pointer"
+              className="text-2xl cursor-pointer lg:text-3xl"
               onClick={handleShowCart}
             />
             {price > 0 && (
@@ -61,7 +61,7 @@ const Header = ({
               </p>
             )}
           </div>
-          <div className="profile-img-container w-8">
+          <div className="profile-img-container w-8 lg:w-16">
             <img src={avatar} alt="avatar" className="cursor-pointer" />
           </div>
         </div>
@@ -82,55 +82,55 @@ const Header = ({
             </div>
           </nav>
         )}
-      </div>
-      {showCart && (
-        <div className="animate__animated animate__fadeInDown cart absolute w-screen bg-white left-0 top-20 h-[250px] z-30">
-          <div className="cart-container w-[90%] h-full mx-auto">
-            <div className="cart-header py-5 border-b">
-              <h4 className="font-bold">Cart</h4>
-            </div>
-            <div className="cart-content flex items-center h-[68%] justify-center">
-              {price > 0 ? (
-                <div className="flex flex-col w-full animate__animated animate__fadeIn">
-                  <div className="flex items-center justify-between py-5 self-start w-full">
-                    <div className="flex items-center gap-3">
-                      <div className="w-16 rounded-md">
-                        <img
-                          src={ImageThumbnail}
-                          alt="shoes thumbnail"
-                          className="rounded-md"
-                        />
+        {showCart && (
+          <div className="animate__animated animate__fadeInDown cart absolute w-[90%] mx-auto shadow-lg bg-white top-20 h-[250px] z-30 rounded-lg md:w-[360px] md:right-[-1rem] md:top-28">
+            <div className="cart-container w-[90%] h-full mx-auto">
+              <div className="cart-header py-5 border-b">
+                <h4 className="font-bold">Cart</h4>
+              </div>
+              <div className="cart-content flex items-center h-[68%] justify-center">
+                {price > 0 ? (
+                  <div className="flex flex-col w-full animate__animated animate__fadeIn">
+                    <div className="flex items-center justify-between py-5 self-start w-full">
+                      <div className="flex items-center gap-3">
+                        <div className="w-16 rounded-md">
+                          <img
+                            src={ImageThumbnail}
+                            alt="shoes thumbnail"
+                            className="rounded-md"
+                          />
+                        </div>
+                        <div className="">
+                          <p className="text-gray-500">
+                            Autumn Limited Edition...
+                          </p>
+                          <p className="text-gray-500">
+                            $125.00 x {price}{" "}
+                            <span className="font-bold text-black">
+                              {125 * price}.00
+                            </span>
+                          </p>
+                        </div>
                       </div>
-                      <div className="">
-                        <p className="text-gray-500">
-                          Autumn Limited Edition...
-                        </p>
-                        <p className="text-gray-500">
-                          $125.00 x {price}{" "}
-                          <span className="font-bold text-black">
-                            {125 * price}.00
-                          </span>
-                        </p>
-                      </div>
+                      <FaTrashAlt
+                        className="cursor-pointer text-gray-400 text-lg"
+                        onClick={() => setPrice(0)}
+                      />
                     </div>
-                    <FaTrashAlt
-                      className="cursor-pointer text-gray-400 text-lg"
-                      onClick={() => setPrice(0)}
-                    />
+                    <button className="py-4 text-white/95 font-bold bg-orange-500 rounded-lg">
+                      Checkout
+                    </button>
                   </div>
-                  <button className="py-4 text-white/95 font-bold bg-orange-500 rounded-lg">
-                    Checkout
-                  </button>
-                </div>
-              ) : (
-                <p className="font-bold text-dark-grayish-blue-500 animate__animated animate__fadeIn">
-                  Your cart is empty.
-                </p>
-              )}
+                ) : (
+                  <p className="font-bold text-dark-grayish-blue-500 animate__animated animate__fadeIn">
+                    Your cart is empty.
+                  </p>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   );
 };

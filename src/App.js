@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import Header from './components/Header'
 import ImageCarousel from './components/ImageCarousel'
 import Product from './components/Product'
@@ -61,8 +62,8 @@ function App() {
         setPrice={setPrice}
         price={price} />
 
-      <main>
-        <div className="image-carousel-container w-full h-[320px]">
+      <main className="md:flex md:items-center md:justify-around md:container md:mx-auto xl:px-20 md:h-[70vh]">
+        <div className="image-carousel-container w-full h-[320px] md:h-[420px] lg:h-[460px] md:w-[45%] lg:w-[460px]">
           <ImageCarousel slides={slides} />
         </div>
         <Product cartCount={cartCount} setCartCount={setCartCount} setPrice={setPrice} />
