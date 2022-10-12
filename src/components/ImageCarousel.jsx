@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import "animate.css";
-
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import ImageThumbnail from "./ImageThumbnail";
 
 const ImageCarousel = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [active, setActive] = useState(1);
 
   const increaseIndex = () => {
     if (currentIndex < slides.length - 1) {
@@ -45,13 +46,13 @@ const ImageCarousel = ({ slides }) => {
       <div className="hidden lg:flex absolute bottom-[-7.7rem] left-0 justify-between w-full">
         {slides.map((slide) => {
           return (
-            <div key={slide.id} className="h-24 aspect-square cursor-pointer">
-              <img
-                src={slide.imageThumbnail}
-                alt="shoes with background orange"
-                className="rounded-lg"
-              />
-            </div>
+            <ImageThumbnail
+              key={slide.id}
+              slide={slide}
+              setCurrentIndex={setCurrentIndex}
+              active={active}
+              setActive={setActive}
+            />
           );
         })}
       </div>
